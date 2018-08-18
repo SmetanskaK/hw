@@ -12,7 +12,7 @@ def solve_quadratic_equation(a, b, c):
         return None, None
 
 
-a1 = float(input("Enter number a:"))
-b1 = float(input("Enter number b:"))
-c1 = float(input("Enter number c:"))
+a1 = int(input("Enter number a:"))
+b1 = int(input("Enter number b:"))
+c1 = int(input("Enter number c:"))
 print("Result: ", solve_quadratic_equation(a1, b1, c1))

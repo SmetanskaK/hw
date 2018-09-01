@@ -2,33 +2,21 @@ from enum import IntEnum
 import random
 GREETING = '''
 Enter data
-0 - Rock
-1 - Paper
-2 - Scissors
+1 - Rock
+2 - Paper
+3 - Scissors
 (\'q\' for exit): '''
 
 
-class Game(IntEnum):
-    rock = 0
-    paper = 1
-    scissors = 2
-
-
-def from_code2text(code):
-    if code == Game.rock:
-        return "ROCK"
-    elif code == Game.paper:
-        return "PAPER"
-    elif code == Game.scissors:
-        return "SCISSORS"
+Game = IntEnum('Game', 'ROCK PAPER SCISSORS')
 
 
 def who_is_winner(pc_choice, user_choice):
-    if pc_choice == Game.rock and user_choice == Game.scissors:
+    if pc_choice == Game.ROCK and user_choice == Game.SCISSORS:
         return False
-    if pc_choice == Game.paper and user_choice == Game.rock:
+    if pc_choice == Game.PAPER and user_choice == Game.ROCK:
         return False
-    if pc_choice == Game.scissors and user_choice == Game.paper:
+    if pc_choice == Game.SCISSORS and user_choice == Game.PAPER:
         return False
     return True
 
@@ -42,7 +30,7 @@ def game():
             print("Invalid data!")
             continue
 
-        if not Game.rock <= int(input_data) <= Game.scissors:
+        if not Game.ROCK <= int(input_data) <= Game.SCISSORS:
             print("Invalid data!")
             continue
 
@@ -55,12 +43,10 @@ def game():
             print("Tie")
         else:
             if who_is_winner(pc_choice, user_choice):
-                print("User is winner: %s vs %s" % (from_code2text(pc_choice),
-                                                    (from_code2text(user_choice))))
+                print("User is winner: %s vs %s" % (pc_choice, user_choice))
             else:
                 print("PC is winner: %s vs %s" %
-                      (from_code2text(pc_choice),
-                      (from_code2text(user_choice))))
+                      (pc_choice, user_choice))
 
 
 game()

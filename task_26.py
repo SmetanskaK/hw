@@ -2,10 +2,7 @@ import random
 
 
 def lst_1(num, lower_bound, upper_bound):
-    list_of_nums = []
-    for i in range(num):
-        i = random.randint(lower_bound, upper_bound)
-        list_of_nums.append(i)
+    list_of_nums = [random.randint(lower_bound, upper_bound) for _ in range(num)]
     return list_of_nums
 
 
@@ -16,11 +13,11 @@ def calc_frequency(list_of_nums):
     if a == b or a == c or c == b:
         return None
     if a < b > c:
-        return b
+        return 0
     if a < c > b:
-        return c
+        return 1
     if c < a > b:
-        return a
+        return -1
 
 
 k = lst_1(11, -1, 1)
